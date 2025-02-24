@@ -57,7 +57,7 @@ Route::group(['prefix' => 'pay', 'namespace' => 'Pay', 'middleware' => ['dujiaok
     Route::post('tokenpay/notify_url', 'TokenPayController@notifyUrl');
     Route::get('tokenpay/return_url', 'TokenPayController@returnUrl')->name('tokenpay-return');
 
-    // 添加一下voucash代码
+    // 添加以下voucash代码
     Route::get('voucash/{payway}/{orderSN}', 'VouCashController@gateway');
     Route::post('voucash/notify_url', 'VouCashController@notifyUrl');
     Route::get('voucash/return_url', 'VouCashController@returnUrl')->name('voucash-return');
