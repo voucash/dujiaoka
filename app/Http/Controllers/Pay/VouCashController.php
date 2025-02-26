@@ -38,7 +38,7 @@ class VouCashController extends PayController
         }
 
         $raw_post_data = file_get_contents('php://input');
-        @file_put_contents('/tmp/voucash.log', $raw_post_data);
+        @file_put_contents('/tmp/voucash.txt', $raw_post_data."\n", FILE_APPEND);
         $ch = curl_init("https://voucash.com/api/payment/verify");
     
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);

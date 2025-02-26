@@ -21,7 +21,7 @@
 
 ![独角数卡支付成功](https://raw.githubusercontent.com/voucash/learncoins/master/images/voucash_2.png)
 
-2. 复制回调单号到 [VouCash提现](https://voucash.com/cn/redeem)
+2. 复制回调单号到 [VouCash提现](https://voucash.com/zh/redeem)
 
 ## 有问题和合作可以小飞机联系我们
  - telegram：[@voucash](https://t.me/voucash)
