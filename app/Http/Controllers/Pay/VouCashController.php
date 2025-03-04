@@ -38,7 +38,7 @@ class VouCashController extends PayController
         }
 
         $raw_post_data = file_get_contents('php://input');
-        @file_put_contents('/tmp/voucash.txt', $raw_post_data."\n", FILE_APPEND);
+        @file_put_contents('/tmp/ipn.log', $raw_post_data."\n", FILE_APPEND);
         $ch = curl_init("https://voucash.com/api/payment/verify");
     
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
@@ -73,8 +73,9 @@ class VouCashController extends PayController
         curl_close($ch);
     
         if ($res == "verified") {
+            @file_put_contents('/tmp/voucash.txt', $data['voucher']."\n", FILE_APPEND);
             $this->orderProcessService->completedOrder($data['order_id'], $data['amount'], $data['voucher']);
-            return 'ok';
+            return 'success';
         }
 
         return "fail";
