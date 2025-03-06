@@ -17,7 +17,8 @@ class VouCashController extends PayController
         $amount = $this->order->actual_price;
         $order_id = $this->order->order_sn;
         $notify_url = url($this->payGateway->pay_handleroute . '/notify_url');
-        $url = "https://voucash.com/api/payment?amount=$amount&order_id=$order_id&currency=CNY&notify_url=$notify_url";
+        $return_url = route('voucash-return', ['order_id' => $this->order->order_sn]);
+        $url = "https://voucash.com/api/payment?amount=$amount&order_id=$order_id&currency=CNY&notify_url=$notify_url&return_url=$return_url";
         return redirect()->away($url);
     }
 
